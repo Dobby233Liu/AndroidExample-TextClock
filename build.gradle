@@ -1,8 +1,27 @@
-apply plugin: 'com.android.application'
+final def var = apply(plugin: 'com.android.application')
+var
+
+buildscript {
+    repositories {
+        google() // Gradle 4.0+
+        maven {
+            url "https://maven.google.com"
+
+        } // Gradle < 4.0
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:3.2.1"
+    }
+}
 
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.0"
+
+    repositories {
+        maven { url 'http://repo1.maven.org/maven2' }
+    }
 
     defaultConfig {
         applicationId "com.l.tc"
